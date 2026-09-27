@@ -9,6 +9,10 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import VerifyEmail from "./auth/VerifyEmail";
 
+import ResidentDashboard from "./dashboards/ResidentDashboard";
+import AdminDashboard from "./dashboards/AdminDashboard";
+import WorkerDashboard from "./dashboards/WorkerDashboard";
+
 function App() {
   const [page, setPage] = useState("login");
   const [verificationEmail, setVerificationEmail] = useState("");
@@ -141,9 +145,39 @@ function App() {
     );
   }
 
-  // Temporary dashboard
-  // Temporary dashboard
+  // Role-based dashboards
   if (page === "dashboard") {
+    // Resident dashboard
+    if (role === "resident") {
+      return (
+        <ResidentDashboard
+          user={user}
+          onLogout={handleLogout}
+        />
+      );
+    }
+
+    // Admin dashboard
+    if (role === "admin") {
+      return (
+        <AdminDashboard
+          user={user}
+          onLogout={handleLogout}
+        />
+      );
+    }
+
+    // Worker dashboard
+    if (role === "worker") {
+      return (
+        <WorkerDashboard
+          user={user}
+          onLogout={handleLogout}
+        />
+      );
+    }
+
+    // Authenticated but no role assigned
     return (
       <div className="dashboard-page">
         <div className="dashboard-card">
@@ -158,31 +192,12 @@ function App() {
           </div>
 
           <div className="dashboard-heading">
-            <h2>Welcome to CherryHomes 🍒</h2>
+            <h2>Account Setup Required</h2>
 
             <p>
-              You are successfully signed in.
+              Your account is authenticated, but no application
+              role has been assigned yet.
             </p>
-          </div>
-
-          <div className="user-info">
-
-            <div className="info-item">
-              <span className="info-label">Logged in as</span>
-
-              <span className="info-value user-id">
-                {user?.username}
-              </span>
-            </div>
-
-            <div className="info-item">
-              <span className="info-label">Role</span>
-
-              <span className="role-badge">
-                {role ? role.toUpperCase() : "NO ROLE ASSIGNED"}
-              </span>
-            </div>
-
           </div>
 
           <button
@@ -194,15 +209,10 @@ function App() {
           </button>
 
         </div>
-
-        <div className="dashboard-decoration">
-          <span>🍒</span>
-          <span>🏠</span>
-          <span>🍒</span>
-        </div>
       </div>
     );
   }
+
   // Login page
   return (
     <Login

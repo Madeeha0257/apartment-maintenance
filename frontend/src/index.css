@@ -664,3 +664,58 @@ input {
     margin-bottom: 28px;
   }
 }
+
+/* ================================
+   Dashboard Actions
+================================ */
+
+.dashboard-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto 24px;
+}
+
+.dashboard-action {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--cherry-pale);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.dashboard-action:hover {
+  background: var(--cherry-light);
+  border-color: var(--cherry);
+  transform: translateY(-1px);
+}
+
+.dashboard-action:first-letter {
+  font-size: 20px;
+}
+
+.dashboard-user {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.dashboard-user strong {
+  color: var(--text);
+  font-size: 14px;
+  word-break: break-all;
+}
