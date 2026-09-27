@@ -719,3 +719,226 @@ input {
   font-size: 14px;
   word-break: break-all;
 }
+
+/* =========================================================
+   COMPLAINT FORM
+   ========================================================= */
+
+.complaint-form-card {
+  width: 100%;
+  max-width: 720px;
+  padding: 36px;
+}
+
+.complaint-form {
+  margin-top: 28px;
+}
+
+/* ---------- Form Groups ---------- */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: var(--white);
+  color: var(--text);
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+/* ---------- Focus ---------- */
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--cherry);
+  box-shadow: 0 0 0 3px rgba(199, 44, 72, 0.12);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ---------- Select ---------- */
+
+.form-group select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+/* ---------- Two-column row ---------- */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* ---------- File Upload ---------- */
+
+.form-group input[type="file"] {
+  padding: 10px;
+  background: var(--cream);
+  cursor: pointer;
+}
+
+.form-group input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 14px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: var(--cherry-light);
+  color: var(--cherry-dark);
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.form-group input[type="file"]::file-selector-button:hover {
+  background: var(--cherry-pale);
+}
+
+.file-name {
+  margin: 2px 0 0;
+
+  font-size: 13px;
+  color: var(--cherry-dark);
+  font-weight: 600;
+}
+
+.form-group small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* ---------- Messages ---------- */
+
+.success-message {
+  margin: 18px 0;
+  padding: 13px 15px;
+
+  border: 1px solid #b7dfc5;
+  border-radius: 10px;
+
+  background: #eefaf2;
+  color: #216e39;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.auth-message {
+  margin: 18px 0;
+  padding: 13px 15px;
+
+  border: 1px solid #efb6c1;
+  border-radius: 10px;
+
+  background: var(--cherry-pale);
+  color: var(--cherry-dark);
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ---------- Buttons ---------- */
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.primary-button {
+  padding: 12px 22px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: var(--cherry);
+  color: var(--white);
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.primary-button:hover {
+  background: var(--cherry-dark);
+  transform: translateY(-1px);
+}
+
+.primary-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Make the existing logout/back button work nicely beside it */
+.form-buttons .logout-button {
+  padding: 12px 22px;
+  margin: 0;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 650px) {
+  .complaint-form-card {
+    padding: 25px 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-buttons {
+    flex-direction: column-reverse;
+  }
+
+  .form-buttons button {
+    width: 100%;
+  }
+}

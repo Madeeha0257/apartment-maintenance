@@ -1,4 +1,18 @@
+import ComplaintForm from "../complaints/ComplaintForm";
+import { useState } from "react";
+
 function ResidentDashboard({ user, onLogout }) {
+  const [page, setPage] = useState("dashboard");
+
+  if (page === "complaint") {
+    return (
+      <ComplaintForm
+        user={user}
+        onBack={() => setPage("dashboard")}
+      />
+    );
+  }
+
   return (
     <div className="dashboard-page">
       <div className="dashboard-card">
@@ -22,7 +36,10 @@ function ResidentDashboard({ user, onLogout }) {
 
         <div className="dashboard-actions">
 
-          <button className="dashboard-action">
+          <button
+            className="dashboard-action"
+            onClick={() => setPage("complaint")}
+          >
             🛠️
             <span>Submit Maintenance Request</span>
           </button>
