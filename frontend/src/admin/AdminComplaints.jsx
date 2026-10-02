@@ -331,6 +331,21 @@ function AdminComplaints({ onBack }) {
               </div>
             </div>
 
+            {selectedComplaint.photoKey && (
+  <div className="admin-complaint-photo">
+    <div className="manage-form-group">
+      <label>Issue Photo</label>
+
+      <div className="admin-photo-preview">
+        <img
+          src={`https://apartment-maintenance.s3.ap-south-1.amazonaws.com/${selectedComplaint.photoKey}`}
+          alt="Maintenance issue"
+        />
+      </div>
+    </div>
+  </div>
+)}
+
             <div className="manage-form">
               <div className="manage-form-group">
                 <label htmlFor="edit-priority">

@@ -234,24 +234,20 @@ const [successMessage, setSuccessMessage] = useState("");
 
       {/* Photo */}
       {complaint.photoKey && (
-        <div className="worker-detail-card">
-          <div className="worker-section-heading">
-            <h2>Issue Photo</h2>
-            <p>Photo submitted by the resident.</p>
-          </div>
+  <div className="worker-detail-card">
+    <div className="worker-section-heading">
+      <h2>Issue Photo</h2>
+      <p>Photo submitted by the resident.</p>
+    </div>
 
-          <div className="worker-photo-placeholder">
-            <div className="worker-photo-icon">📷</div>
-
-            <div>
-              <strong>Photo attached</strong>
-              <p>
-                An issue photo is available for this request.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+    <div className="worker-photo-preview">
+      <img
+        src={`https://apartment-maintenance.s3.ap-south-1.amazonaws.com/${complaint.photoKey}`}
+        alt="Maintenance issue"
+      />
+    </div>
+  </div>
+)}
 
       {/* Resolution Notes */}
       {complaint.resolutionNotes && (

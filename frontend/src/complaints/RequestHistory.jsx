@@ -284,20 +284,18 @@ function RequestHistory({ user, onBack }) {
 
           {/* Photo */}
 
-          {complaint.photoUrl && (
-            <div className="photo-reference">
+          {complaint.photoKey && (
+  <div className="photo-reference">
+    <span>Issue Photo</span>
 
-              <span>
-                Issue Photo
-              </span>
-
-              <p>
-                Photo attached to this maintenance
-                request.
-              </p>
-
-            </div>
-          )}
+    <div className="resident-photo-preview">
+      <img
+        src={`https://apartment-maintenance.s3.ap-south-1.amazonaws.com/${complaint.photoKey}`}
+        alt="Maintenance issue"
+      />
+    </div>
+  </div>
+)}
 
         </div>
 
