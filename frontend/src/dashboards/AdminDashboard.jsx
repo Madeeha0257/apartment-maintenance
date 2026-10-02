@@ -1,8 +1,29 @@
+import { useState } from "react";
+import AdminComplaints from "../admin/AdminComplaints";
+import AdminWorkers from "../admin/AdminWorkers";
+
 function AdminDashboard({ user, onLogout }) {
+  const [page, setPage] = useState("dashboard");
+
+  if (page === "complaints") {
+    return (
+      <AdminComplaints
+        onBack={() => setPage("dashboard")}
+      />
+    );
+  }
+
+  if (page === "workers") {
+    return (
+      <AdminWorkers
+        onBack={() => setPage("dashboard")}
+      />
+    );
+  }
+
   return (
     <div className="dashboard-page">
       <div className="dashboard-card">
-
         <div className="brand">
           <div className="brand-icon">🏢</div>
 
@@ -14,20 +35,22 @@ function AdminDashboard({ user, onLogout }) {
 
         <div className="dashboard-heading">
           <h2>Admin Dashboard 👨‍💼</h2>
-
-          <p>
-            Manage apartment maintenance operations.
-          </p>
+          <p>Manage apartment maintenance operations.</p>
         </div>
 
         <div className="dashboard-actions">
-
-          <button className="dashboard-action">
+          <button
+            className="dashboard-action"
+            onClick={() => setPage("complaints")}
+          >
             📋
             <span>View All Complaints</span>
           </button>
 
-          <button className="dashboard-action">
+          <button
+            className="dashboard-action"
+            onClick={() => setPage("workers")}
+          >
             👷
             <span>Manage Workers</span>
           </button>
@@ -36,7 +59,6 @@ function AdminDashboard({ user, onLogout }) {
             📊
             <span>View Analytics</span>
           </button>
-
         </div>
 
         <div className="dashboard-user">
@@ -51,7 +73,6 @@ function AdminDashboard({ user, onLogout }) {
         >
           Sign out
         </button>
-
       </div>
 
       <div className="dashboard-decoration">
