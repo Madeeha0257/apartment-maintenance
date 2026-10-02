@@ -52,7 +52,10 @@ function WorkerAssignedRequests({ user, onBack , statusFilter = null,
       complaint.assignedWorkerId === currentWorker.workerId;
 
     const matchesStatus =
-      !statusFilter || complaint.status === statusFilter;
+        !statusFilter ||
+        (Array.isArray(statusFilter)
+            ? statusFilter.includes(complaint.status)
+            : complaint.status === statusFilter);
 
     return assignedToWorker && matchesStatus;
   }

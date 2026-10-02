@@ -1,6 +1,7 @@
 import { useState } from "react";
 import WorkerAssignedRequests from "../worker/WorkerAssignedRequests";
 import WorkerInProgress from "../worker/WorkerInProgress";
+import WorkerCompleted from "../worker/WorkerCompleted";
 
 function WorkerDashboard({ user, onLogout }) {
   const [page, setPage] = useState("dashboard");
@@ -17,6 +18,15 @@ function WorkerDashboard({ user, onLogout }) {
   if (page === "progress") {
   return (
     <WorkerInProgress
+      user={user}
+      onBack={() => setPage("dashboard")}
+    />
+  );
+}
+
+  if (page === "completed") {
+  return (
+    <WorkerCompleted
       user={user}
       onBack={() => setPage("dashboard")}
     />
