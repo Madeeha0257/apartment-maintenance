@@ -1,7 +1,27 @@
 import { useState } from "react";
+import WorkerAssignedRequests from "../worker/WorkerAssignedRequests";
+import WorkerInProgress from "../worker/WorkerInProgress";
 
 function WorkerDashboard({ user, onLogout }) {
   const [page, setPage] = useState("dashboard");
+
+  if (page === "assigned") {
+    return (
+      <WorkerAssignedRequests
+        user={user}
+        onBack={() => setPage("dashboard")}
+      />
+    );
+  }
+
+  if (page === "progress") {
+  return (
+    <WorkerInProgress
+      user={user}
+      onBack={() => setPage("dashboard")}
+    />
+  );
+}
 
   return (
     <div className="dashboard-page">
@@ -54,23 +74,6 @@ function WorkerDashboard({ user, onLogout }) {
           </button>
 
         </div>
-
-        {page !== "dashboard" && (
-          <div
-            style={{
-              marginTop: "20px",
-              padding: "14px",
-              border: "1px solid var(--border)",
-              borderRadius: "10px",
-              background: "var(--cream)",
-              color: "var(--muted)",
-              textAlign: "center",
-              fontSize: "0.85rem",
-            }}
-          >
-            Worker request management will appear here.
-          </div>
-        )}
 
         <div className="dashboard-user">
           <span>Signed in as</span>
