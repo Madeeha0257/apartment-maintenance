@@ -10,6 +10,7 @@ function AdminWorkers({ onBack }) {
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [workerEmail, setWorkerEmail] = useState("");
+  const [workerPassword, setWorkerPassword] = useState("");
   const [addingWorker, setAddingWorker] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -43,6 +44,7 @@ function AdminWorkers({ onBack }) {
     event.preventDefault();
 
     const email = workerEmail.trim().toLowerCase();
+    const password = workerPassword;
 
     if (!email) {
       setError("Worker email is required.");
@@ -62,6 +64,7 @@ function AdminWorkers({ onBack }) {
         body: JSON.stringify({
           username: email,
           email: email,
+          password: password
         }),
       });
 
@@ -72,6 +75,7 @@ function AdminWorkers({ onBack }) {
       }
 
       setWorkerEmail("");
+      setWorkerPassword("");
       setShowAddForm(false);
       setSuccessMessage("Worker added successfully.");
 
@@ -195,6 +199,24 @@ function AdminWorkers({ onBack }) {
               <small>
                 The email address will be used as the worker's Cognito
                 username.
+              </small>
+            </div>
+            
+            <div className="manage-form-group">
+              <label htmlFor="workerPassword">Initial Password</label>
+
+              <input
+                id="workerPassword"
+                type="password"
+                value={workerPassword}
+                onChange={(event) => setWorkerPassword(event.target.value)}
+                placeholder="Minimum 8 characters"
+                minLength="8"
+                required
+              />
+
+              <small>
+                The worker will use this password to sign in.
               </small>
             </div>
 

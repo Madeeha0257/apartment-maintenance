@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 function WorkerDashboard({ user, onLogout }) {
+  const [page, setPage] = useState("dashboard");
+
   return (
     <div className="dashboard-page">
       <div className="dashboard-card">
@@ -8,7 +12,7 @@ function WorkerDashboard({ user, onLogout }) {
 
           <div>
             <h1>CherryHomes</h1>
-            <p>Maintenance Portal</p>
+            <p>Worker Portal</p>
           </div>
         </div>
 
@@ -22,22 +26,51 @@ function WorkerDashboard({ user, onLogout }) {
 
         <div className="dashboard-actions">
 
-          <button className="dashboard-action">
+          <button
+            type="button"
+            className="dashboard-action"
+            onClick={() => setPage("assigned")}
+          >
             📋
             <span>Assigned Requests</span>
           </button>
 
-          <button className="dashboard-action">
+          <button
+            type="button"
+            className="dashboard-action"
+            onClick={() => setPage("progress")}
+          >
             🔧
             <span>Requests In Progress</span>
           </button>
 
-          <button className="dashboard-action">
+          <button
+            type="button"
+            className="dashboard-action"
+            onClick={() => setPage("completed")}
+          >
             ✅
             <span>Completed Requests</span>
           </button>
 
         </div>
+
+        {page !== "dashboard" && (
+          <div
+            style={{
+              marginTop: "20px",
+              padding: "14px",
+              border: "1px solid var(--border)",
+              borderRadius: "10px",
+              background: "var(--cream)",
+              color: "var(--muted)",
+              textAlign: "center",
+              fontSize: "0.85rem",
+            }}
+          >
+            Worker request management will appear here.
+          </div>
+        )}
 
         <div className="dashboard-user">
           <span>Signed in as</span>
