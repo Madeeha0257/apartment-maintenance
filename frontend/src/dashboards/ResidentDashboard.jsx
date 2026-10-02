@@ -1,4 +1,6 @@
 import ComplaintForm from "../complaints/ComplaintForm";
+import MyActiveRequests from "../complaints/MyActiveRequests";
+import RequestHistory from "../complaints/RequestHistory";
 import { useState } from "react";
 
 function ResidentDashboard({ user, onLogout }) {
@@ -12,6 +14,24 @@ function ResidentDashboard({ user, onLogout }) {
       />
     );
   }
+
+  if (page === "history") {
+  return (
+    <RequestHistory
+      user={user}
+      onBack={() => setPage("dashboard")}
+    />
+  );
+}
+
+  if (page === "active") {
+  return (
+    <MyActiveRequests
+      user={user}
+      onBack={() => setPage("dashboard")}
+    />
+  );
+}
 
   return (
     <div className="dashboard-page">
@@ -44,12 +64,12 @@ function ResidentDashboard({ user, onLogout }) {
             <span>Submit Maintenance Request</span>
           </button>
 
-          <button className="dashboard-action">
+          <button className="dashboard-action" onClick={() => setPage("active")}>
             📋
             <span>My Active Requests</span>
           </button>
 
-          <button className="dashboard-action">
+          <button className="dashboard-action"  onClick={() => setPage("history")}>
             📜
             <span>Request History</span>
           </button>

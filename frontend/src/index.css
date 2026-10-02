@@ -942,3 +942,896 @@ input {
     width: 100%;
   }
 }
+
+/* =========================================================
+   MY ACTIVE REQUESTS
+   ========================================================= */
+
+.complaint-list-card {
+  width: min(1050px, 92vw);
+  max-width: 1050px;
+  padding: 38px 42px;
+  text-align: left;
+}
+
+
+/* ---------------------------------------------------------
+   PAGE HEADER
+   --------------------------------------------------------- */
+
+.complaint-list-card .dashboard-heading {
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.complaint-list-card .dashboard-heading h2 {
+  margin-bottom: 8px;
+}
+
+
+/* ---------------------------------------------------------
+   REQUEST LIST
+   --------------------------------------------------------- */
+
+.complaints-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+/* ---------------------------------------------------------
+   REQUEST CARD
+   --------------------------------------------------------- */
+
+.complaint-card {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 22px 24px;
+
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  box-shadow: 0 4px 14px rgba(53, 19, 30, 0.05);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.complaint-card:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--cherry-light);
+
+  box-shadow:
+    0 8px 22px rgba(53, 19, 30, 0.08);
+}
+
+
+/* ---------------------------------------------------------
+   CARD HEADER
+   --------------------------------------------------------- */
+
+.complaint-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 18px;
+}
+
+.complaint-card-header h3 {
+  margin: 0 0 5px;
+
+  color: var(--text);
+
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+.complaint-id {
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* ---------------------------------------------------------
+   STATUS BADGES
+   --------------------------------------------------------- */
+
+.request-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 6px 11px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+
+/* Reported */
+
+.status-reported {
+  background: #fff0f2;
+  color: var(--cherry-dark);
+
+  border: 1px solid #f3c6ce;
+}
+
+
+/* Assigned */
+
+.status-assigned {
+  background: #fff5df;
+  color: #8a5a00;
+
+  border: 1px solid #f0d59a;
+}
+
+
+/* In Progress */
+
+.status-progress {
+  background: #eeeaff;
+  color: #5a45a0;
+
+  border: 1px solid #d8d0f5;
+}
+
+
+/* ---------------------------------------------------------
+   REQUEST SUMMARY
+   --------------------------------------------------------- */
+
+.complaint-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 0;
+
+  padding: 14px 0;
+
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.complaint-summary > div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 0 18px;
+
+  border-right: 1px solid var(--border);
+}
+
+.complaint-summary > div:first-child {
+  padding-left: 0;
+}
+
+.complaint-summary > div:last-child {
+  border-right: none;
+}
+
+.complaint-summary span {
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.complaint-summary strong {
+  color: var(--text);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   CARD FOOTER
+   --------------------------------------------------------- */
+
+.complaint-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 16px;
+}
+
+.request-preview {
+  flex: 1;
+
+  color: var(--muted);
+
+  font-size: 13px;
+  line-height: 1.5;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   VIEW DETAILS BUTTON
+   --------------------------------------------------------- */
+
+.view-request-button {
+  flex-shrink: 0;
+
+  border: none;
+
+  background: var(--cherry-pale);
+  color: var(--cherry-dark);
+
+  padding: 9px 15px;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    transform 0.18s ease;
+}
+
+.view-request-button:hover {
+  background: var(--cherry-light);
+
+  transform: translateX(2px);
+}
+
+
+/* ---------------------------------------------------------
+   EMPTY STATE
+   --------------------------------------------------------- */
+
+.empty-state {
+  padding: 55px 25px;
+
+  text-align: center;
+
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+
+  background: var(--cream);
+}
+
+.empty-state-icon {
+  font-size: 32px;
+
+  margin-bottom: 12px;
+}
+
+.empty-state h3 {
+  margin: 0 0 7px;
+
+  color: var(--text);
+
+  font-size: 18px;
+}
+
+.empty-state p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   REQUEST DETAIL PAGE
+   ========================================================= */
+
+.complaint-detail-card {
+  width: min(1050px, 92vw);
+  max-width: 1050px;
+
+  padding: 32px 42px 42px;
+
+  text-align: left;
+}
+
+
+/* ---------------------------------------------------------
+   BACK BUTTON
+   --------------------------------------------------------- */
+
+.detail-back-button {
+  display: inline-flex;
+
+  margin: 10px 0 28px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--cherry-dark);
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.detail-back-button:hover {
+  text-decoration: underline;
+}
+
+
+/* ---------------------------------------------------------
+   DETAIL HEADER
+   --------------------------------------------------------- */
+
+.detail-header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.9px;
+}
+
+.detail-header h2 {
+  margin: 0 0 7px;
+
+  color: var(--text);
+
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.detail-header .complaint-id {
+  font-size: 13px;
+}
+
+
+/* Make the detail-page status actually look like a badge */
+
+.detail-header .request-status {
+  margin-top: 5px;
+}
+
+
+/* =========================================================
+   STATUS TIMELINE
+   ========================================================= */
+
+.status-section {
+  padding: 28px 0 30px;
+}
+
+.status-section h3 {
+  margin: 0 0 23px;
+
+  color: var(--text);
+
+  font-size: 16px;
+}
+
+.status-timeline {
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+}
+
+.timeline-step {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+
+  gap: 8px;
+
+  min-width: 82px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+.timeline-dot {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f3ebed;
+  color: var(--muted);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.timeline-active {
+  color: var(--cherry-dark);
+}
+
+.timeline-active .timeline-dot {
+  background: var(--cherry);
+  color: white;
+
+  box-shadow: 0 3px 8px rgba(199, 44, 72, 0.2);
+}
+
+.timeline-line {
+  flex: 1;
+
+  height: 2px;
+
+  margin-bottom: 23px;
+
+  background: var(--border);
+}
+
+.timeline-line-active {
+  background: var(--cherry-light);
+}
+
+
+/* =========================================================
+   DETAIL INFO
+   ========================================================= */
+
+.detail-info-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.detail-info-box {
+  padding: 15px 16px;
+
+  background: var(--cream);
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.detail-info-box span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.detail-info-box strong {
+  color: var(--text);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.detail-description {
+  padding: 20px;
+
+  background: var(--white);
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.detail-description h3 {
+  margin: 0 0 9px;
+
+  color: var(--text);
+
+  font-size: 15px;
+}
+
+.detail-description p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   ASSIGNED WORKER
+   ========================================================= */
+
+.assigned-worker {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 12px;
+
+  padding: 15px 18px;
+
+  background: var(--cherry-pale);
+
+  border-radius: 12px;
+}
+
+.assigned-worker span {
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+.assigned-worker strong {
+  color: var(--cherry-dark);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   PHOTO
+   ========================================================= */
+
+.photo-reference {
+  margin-top: 12px;
+
+  padding: 16px 18px;
+
+  background: var(--cream);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+}
+
+.photo-reference span {
+  color: var(--text);
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.photo-reference p {
+  margin: 5px 0 0;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   BOTTOM BUTTONS
+   ========================================================= */
+
+.complaint-list-card .form-buttons {
+  margin-top: 25px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+  .complaint-list-card,
+  .complaint-detail-card {
+    width: 94vw;
+
+    padding: 28px 20px;
+  }
+
+  .complaint-card-header {
+    flex-direction: column;
+  }
+
+  .request-status {
+    align-self: flex-start;
+  }
+
+  .complaint-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .complaint-summary > div {
+    padding: 9px 0;
+
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .complaint-summary > div:last-child {
+    border-bottom: none;
+  }
+
+  .complaint-card-footer {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .view-request-button {
+    width: 100%;
+  }
+
+  .detail-header {
+    flex-direction: column;
+  }
+
+  .detail-header h2 {
+    font-size: 24px;
+  }
+
+  .detail-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .status-timeline {
+    overflow-x: auto;
+
+    padding-bottom: 8px;
+  }
+}
+
+
+@media (max-width: 450px) {
+
+  .detail-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-header h2 {
+    font-size: 22px;
+  }
+}
+
+/* =========================================================
+   HISTORY STATUS BADGES
+   ========================================================= */
+
+.status-resolved {
+  background: #e8f7ee;
+  color: #21733d;
+
+  border: 1px solid #bfe5cc;
+}
+
+.status-closed {
+  background: #edf0f3;
+  color: #4d5965;
+
+  border: 1px solid #d4d9de;
+}
+
+
+/* =========================================================
+   RESOLUTION BOX
+   ========================================================= */
+
+.resolution-box {
+  margin-top: 12px;
+
+  padding: 20px;
+
+  background: #f8faf9;
+
+  border: 1px solid #d7e9dd;
+
+  border-radius: 14px;
+}
+
+.resolution-box h3 {
+  margin: 0 0 9px;
+
+  color: var(--text);
+
+  font-size: 15px;
+}
+
+.resolution-box p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+.resolution-box .no-resolution {
+  font-style: italic;
+}
+
+/* =========================================================
+   STATUS TIMELINE
+   ========================================================= */
+
+.status-timeline {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin: 25px 0 10px;
+}
+
+.timeline-step-wrapper {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.timeline-circle {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f1e8eb;
+  color: #806a70;
+
+  border: 2px solid #ead5da;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: all 0.2s ease;
+}
+
+.timeline-circle.completed {
+  background: #c72c48;
+  color: white;
+  border-color: #c72c48;
+}
+
+.timeline-circle.current {
+  background: #c72c48;
+  color: white;
+  border-color: #c72c48;
+
+  box-shadow: 0 0 0 5px #ffe8ed;
+}
+
+.timeline-circle.upcoming {
+  background: #f7f0f2;
+  color: #806a70;
+  border-color: #ead5da;
+}
+
+.timeline-label {
+  margin-top: 9px;
+
+  color: #806a70;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  text-align: center;
+
+  white-space: nowrap;
+}
+
+.timeline-label.current-label {
+  color: #c72c48;
+  font-weight: 700;
+}
+
+.timeline-line {
+  height: 3px;
+
+  flex: 1;
+
+  margin-top: 18px;
+
+  background: #ead5da;
+
+  border-radius: 10px;
+}
+
+.timeline-line.completed-line {
+  background: #c72c48;
+}
+@media (max-width: 650px) {
+
+  .status-timeline {
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .timeline-step-wrapper {
+    min-width: 105px;
+  }
+
+  .timeline-circle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .timeline-label {
+    font-size: 11px;
+  }
+
+}
